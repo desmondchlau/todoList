@@ -1,10 +1,16 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const todoList = require('./todo/todoList.js');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
+
+let mainWindow;
+let addWindow;
+
+todos = new todoList(null);
 
 const createWindow = () => {
   // Create the browser window.
@@ -20,6 +26,7 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'static/index.html'));
+
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
@@ -49,11 +56,9 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-ipcMain.on("addTodo", function(event, arg){
-  addTodoWindow();
-})
 
-const addTodoWindow = () => {
+
+function addTodoWindow (){
   // Create the browser window.
   addWindow = new BrowserWindow({
     width: 400,
@@ -69,8 +74,21 @@ const addTodoWindow = () => {
 
   addWindow.on('close', function(){
     addWindow = null;
-  })
+  });
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
-};
+}
+
+ipcMain.on("addTodo:msg", function(event, arg){
+  if (arg == "add"){
+    addTodoWindow();
+  } else if (arg == "cancel"){
+    addWindow.close();
+  };
+})
+
+ipcMain.on("addTodo:data", function(event, arg){
+  console.log(arg);
+  addWindow.close();
+})

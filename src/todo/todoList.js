@@ -1,9 +1,5 @@
 class todoList {
-    constructor() {
-        this.ls = [];
-    }
-
-    constructor(data) {
+    constructor(data = null) {
         this.ls = [];
 
         //insert todos from data
@@ -29,3 +25,5 @@ class todoList {
         return this.ls;
     }
 }
+
+module.exports = todoList

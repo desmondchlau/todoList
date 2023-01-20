@@ -8,33 +8,37 @@
   <body>
     
     <div class="box">
+      <form id="add-todo-form">
       <div class="field">
           <div class="control">
-              <input class="input" type="text" placeholder="Title">
+              <input class="input" type="text" placeholder="Title" id="title">
           </div>
       </div>
 
       <div class="field">
           <label class="label">Date</label>
           <div class="control">
-              <input type="date" class="input">
+              <input type="date" class="input" id="date">
           </div>
       </div>
 
       <div class="field">
           <div class="control">
-            <textarea class="textarea" placeholder="Enter details of the task"></textarea>
+            <textarea class="textarea" placeholder="Enter details of the task" id="details"></textarea>
           </div>
       </div>
 
       <div class="field is-grouped is-grouped-centered">
-        <p class="control"><button class="button is-primary" id="add-todo">Add</button></p>
-        <p class="control"><button class="button is-light" id="add-todo">Cancel</button></p>
+        <p class="control"><button class="button is-primary" id="add-todo" type="submit">Add</button></p>
+        <p class="control"><button class="button is-light" id="cancel" type="reset">Cancel</button></p>
       </div>
+      </form>
     </div>
 
 
 
-    <script type="text/javascript" src="../addTodo.js"></script>
+    <script type="text/javascript" src="../addTodo.js">
+      
+    </script>
   </body>
 </html>

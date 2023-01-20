@@ -3,9 +3,8 @@ const {ipcRenderer} = electron;
 
 
 addTodo = document.getElementById("add-todo");
-alert(addTodo);
 
 
 addTodo.onclick = function(){
-    ipcRenderer.send("addTodo", "add");
+    ipcRenderer.send("addTodo:msg", "add");
 }

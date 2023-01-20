@@ -1,12 +1,5 @@
-
 class todo {
-    constructor() {
-        this.title = "";
-        this.date = null;
-        this.details = "";
-    }
-
-    constructor(title, date, details = ""){
+    constructor(title = "", date = null, details = ""){
         this.title = title;
         this.date = date;
         this.details = details;
