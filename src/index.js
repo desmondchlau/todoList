@@ -7,6 +7,5 @@ alert(addTodo);
 
 
 addTodo.onclick = function(){
-    alert("todo clicked");
     ipcRenderer.send("addTodo", "add");
 }

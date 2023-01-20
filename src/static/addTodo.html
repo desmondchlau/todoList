@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add To-do</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    
+    <div class="box">
+      <div class="field">
+          <div class="control">
+              <input class="input" type="text" placeholder="Title">
+          </div>
+      </div>
+
+      <div class="field">
+          <label class="label">Date</label>
+          <div class="control">
+              <input type="date" class="input">
+          </div>
+      </div>
+
+      <div class="field">
+          <div class="control">
+            <textarea class="textarea" placeholder="Enter details of the task"></textarea>
+          </div>
+      </div>
+
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control"><button class="button is-primary" id="add-todo">Add</button></p>
+        <p class="control"><button class="button is-light" id="add-todo">Cancel</button></p>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="../addTodo.js"></script>
+  </body>
+</html>

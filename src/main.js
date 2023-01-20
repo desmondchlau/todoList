@@ -50,5 +50,27 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 ipcMain.on("addTodo", function(event, arg){
-  console.log("add todo");
+  addTodoWindow();
 })
+
+const addTodoWindow = () => {
+  // Create the browser window.
+  addWindow = new BrowserWindow({
+    width: 400,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
+  });
+
+  // and load the index.html of the app.
+  addWindow.loadFile(path.join(__dirname, 'static/addTodo.html'));
+
+  addWindow.on('close', function(){
+    addWindow = null;
+  })
+
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools();
+};
